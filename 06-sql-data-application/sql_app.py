@@ -11,20 +11,14 @@ cursor.execute(
         email TEXT)
     """
 )
+cursor.execute(
+    """INSERT OR IGNORE INTO customers(id, name, email)
+       VALUES (?, ?, ?)
+    """,
+    (1, "Joseph", "Joseph@email.co")
+)
 
-#cursor.execute(
- #   """INSERT INTO customers(name, email) VALUES(?,?)
- #   """,
- #   ("Joseph", "Joseph@email.co")
-#)
-
-#connection.commit()
-
-
-
-
-
-
+connection.commit()
 
 
 cursor.execute(
