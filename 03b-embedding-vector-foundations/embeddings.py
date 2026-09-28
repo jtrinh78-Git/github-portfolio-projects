@@ -33,7 +33,6 @@ def cosine_similarity(a, b):
     return dot_product / (magnitude_a * magnitude_b)
 
 # SECTION 7 - COMPARE MEANING
-
 similar_response = client.embeddings.create(
     model="text-embedding-3-small",
     input=similar_text
@@ -53,8 +52,7 @@ different_score = cosine_similarity(vector, different_vector)
 print("Dog vs Puppy:", similar_score)
 print("Dog vs Saturn:", different_score)
 
-# Section 8 - Semantic Search
-
+# SECTION 8 - SEMANTIC SEARCH
 documents = [
     "Dogs are loyal and friendly animals.",
     "Python is a popular programming language.",
@@ -69,8 +67,6 @@ for document in documents:
     )
     document_vector = document_response.data[0].embedding
     document_vectors.append(document_vector)
-
-
 
 query = "What animal makes a good companion?"
 query_response = client.embeddings.create(
@@ -87,7 +83,8 @@ for document_vector in document_vectors:
 best_score = max(scores)
 best_index = scores.index(best_score)
 best_document = documents[best_index]
-print("Query:",query)
+
+print("Query:", query)
 print("Best match:", best_document)
-print("Similarty:", best_score)
+print("Similarity:", best_score)
 
