@@ -18,7 +18,8 @@ def test_get_existing_customer():
 # SECTION 3 - TEST MISSING CUSTOMER
 
 def test_get_missing_customer():
-    response = client.get("/customers/0")
+    response = client.get(
+    "/customers/0")
 
     assert response.status_code == 404
     assert response.json()["detail"] == "Customer not found"
