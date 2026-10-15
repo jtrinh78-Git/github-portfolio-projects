@@ -36,3 +36,15 @@ def test_active_customer_without_enough_money_cannot_place_order():
     result = can_place_order(customer, 200)
 
     assert result == False
+    
+
+def test_customer_with_exact_balance():
+    customer = {
+        "name": "David",
+        "balance": 200,
+        "status": "active"
+    }
+
+    result = can_place_order(customer, 200)
+
+    assert result == True
